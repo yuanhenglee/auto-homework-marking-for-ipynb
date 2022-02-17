@@ -7,7 +7,10 @@ inputDir = ''
 
 def handle_file( file ):
     path, filename = os.path.split(file)
+    fileType = os.path.splitext(filename)[1]
     filename = os.path.splitext(filename)[0]
+
+    assert( fileType in fileTypes , "file type not supported")
 
     outputFilename = '%s.output' % filename
     errFilename = '%s.err' % filename
@@ -17,10 +20,11 @@ def handle_file( file ):
     errFilePath = os.path.join(path, errFilename)
     txtFilePath = os.path.join(path, txtFilename)
 
-    if os.path.splitext(file)[1] == '.ipynb':
+    cmd = "echo \"do nothing\""
+    if fileType == '.ipynb':
         os.system("jupyter nbconvert --to script " + file)
         cmd = "python3 "+ txtFilePath + " < " + inputDir + " > " + outputFilePath + " 2> " + errFilePath
-    elif os.path.splitext(file)[1] == '.py':
+    elif fileType == '.py':
         cmd = "python3 "+file + " < " + inputDir + " > " + outputFilePath + " 2> " + errFilePath
     os.system(cmd)
 
