@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/runipy/notebook_runner.py", line 27, in <module>
+    from IPython.kernel import KernelManager
+ModuleNotFoundError: No module named 'IPython.kernel'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/bin/runipy", line 33, in <module>
+    sys.exit(load_entry_point('runipy==0.1.5', 'console_scripts', 'runipy')())
+  File "/Library/Frameworks/Python.framework/Versions/3.8/bin/runipy", line 25, in importlib_load_entry_point
+    return next(matches).load()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/importlib/metadata.py", line 77, in load
+    module = import_module(match.group('module'))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/runipy/main.py", line 11, in <module>
+    from runipy.notebook_runner import NotebookRunner, NotebookError
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/runipy/notebook_runner.py", line 35, in <module>
+    from IPython.kernel import KernelManager
+ModuleNotFoundError: No module named 'IPython.kernel'
