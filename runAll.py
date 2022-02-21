@@ -10,14 +10,15 @@ def handle_file( file ):
     fileType = os.path.splitext(filename)[1]
     filename = os.path.splitext(filename)[0]
 
-    assert( fileType in fileTypes , "file type not supported")
-
     outputFilename = '%s.output' % filename
     errFilename = '%s.err' % filename
     txtFilename = '%s.txt' % filename
 
-    outputFilePath = os.path.join(path, outputFilename)
-    errFilePath = os.path.join(path, errFilename)
+    outputSubdir = os.path.join(outputDir, filename)
+    os.mkdir( outputSubdir )
+
+    outputFilePath = os.path.join(outputSubdir, outputFilename)
+    errFilePath = os.path.join(outputSubdir, errFilename)
     txtFilePath = os.path.join(path, txtFilename)
 
     cmd = "echo \"do nothing\""
@@ -34,8 +35,9 @@ if __name__ == '__main__':
     try:
         codeDir = sys.argv[1]
         inputDir = sys.argv[2]
+        outputDir = sys.argv[3]
     except:
-        raise Exception("Usage: python3 runAll.py codeDir inputDir")
+        raise Exception("Usage: python3 runAll.py codeDir inputDir outputDir")
 
     print("code dir:",codeDir)
 
